@@ -5,7 +5,7 @@ const express = require ('express');
 const morgan = require ('morgan');
 const aPiRouter = require ('./routes/index');
 const bodyParser = require('body-parser');
-const cons = require ('cons'); 
+const cors = require ('cors'); 
 
 const app = express ();
 app.use (cors());
@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extented: true}));
 
 app.use('/api', aPiRouter);
 
-app.set('PORT', proces.env.PORT || 3000);
+app.set('PORT', process.env.PORT || 3000);
 
 //parte normal
 app.get('/', function(req, res) {
@@ -33,6 +33,6 @@ app.listen(app.get('PORT'), () => {
     console.log(`Running on http://localhost:${app.get('PORT')}`)
 })
 
-app.post('/api/auth/signin', controller.signin);
+//app.post('/api/auth/signin', controller.signin);
 
 module.exports = app;

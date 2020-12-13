@@ -1,6 +1,6 @@
 //const User = require('../models');
-const bcrypt = require ('bcrypjs');
-const jwt = require('jsonwebtokenerror');
+const bcrypt = require ('bcryptjs');
+const jwt = require('jsonwebtoken');
 const models =  require('../models');
 
 exports.signin = async(req,res,next) => {
@@ -14,7 +14,7 @@ exports.signin = async(req,res,next) => {
                     name: user.name,
                     email: user.email,
                     rol: user.rol
-                },'config.secret',{
+                },'config.secret', {
                     expiresIn:86400,
                 }                
                 );
