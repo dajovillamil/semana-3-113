@@ -6,7 +6,7 @@ describe('login Endpoints', () => {
             .post('/api/auth/signin')
             .send({
                 email: 'ejemplo@gmail.com',
-                password: 'micontraseña',
+                password: 'contraseña',
 
             })
         expect(res.statusCode).toEqual(200)
