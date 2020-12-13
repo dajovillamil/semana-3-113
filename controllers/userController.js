@@ -5,7 +5,7 @@ const models =  require('../models');
 
 exports.signin = async(req,res,next) => {
     try {
-        const user = await models.User.findOne({where:{email}});
+        const user = await models.user.findOne({where:{email}});
         if (user){
             const passwordIsValid = bcrypt.compareSync(req.body.password , user.password);
             if (passwordIsValid){
