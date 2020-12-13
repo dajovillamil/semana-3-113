@@ -1,28 +1,30 @@
 //parte del profe
 
-//const bodyParser = require('body-parser');
 const express = require ('express');
 const morgan = require ('morgan');
-const aPiRouter = require ('./routes/index');
-const bodyParser = require('body-parser');
+const apiRouter = require ('./routes/index');
+const bodyPArser = require('body-parser');
 const cors = require ('cors'); 
 
 const app = express ();
-app.use (cors());
+app.use(cors());
 
-app.use((rq, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin X-Requested-With, Content-Type, Accept");
-    res.header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
+app.use((req, res, next) => {
+    res.header("Acces-Control-Alow-Origin","*");
+    res.header("Acces-Control-Alow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Acces-Control-Alow-Methods: GET, POST, PUT,  DELETE");
     next();
 });
 app.use(morgan('dev'));
-app.use(bodyParser.json());   
-app.use(bodyParser.urlencoded({ extented: true}));
+app.use(bodyPArser.json());   
+app.use(bodyPArser.urlencoded({extended: true}));
 
-app.use('/api', aPiRouter);
+app.use('/api',apiRouter);
 
 app.set('PORT', process.env.PORT || 3000);
+
+/////revision
+
 
 //parte normal
 app.get('/', function(req, res) {
@@ -31,7 +33,7 @@ app.get('/', function(req, res) {
 });
 app.listen(app.get('PORT'), () => {
     console.log(`Running on http://localhost:${app.get('PORT')}`)
-})
+});
 
 //app.post('/api/auth/signin', controller.signin);
 
