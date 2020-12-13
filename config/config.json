@@ -1,8 +1,11 @@
 {
     "development": {
-        "dialect": "sqlite",
-        "storage": "./database.sqlite3"
-    },
+        "username": "dsSGOjXIUH",
+        "password": "vxG2eih2D3",
+        "database": "dsSGOjXIUH",
+        "host": "remotemysql.com",
+        "dialect": "mysql"
+    }, 
     "test": {
         "dialect": "sqlite",
         "storage": "./database.sqlite3"
